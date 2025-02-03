@@ -34,7 +34,7 @@ ORDER BY owner_id;
          7 | Maya       | Malarkin  |            |        |         |      |          |         
 (15 rows)
 
---Query 2:
+--Query 2: Count the number of vehicles for each owner
 SELECT o.id AS owners_id, o.first_name, o.last_name, COUNT(v.id) AS vehicle_count
 FROM owners o
 LEFT JOIN vehicles v ON o.id = v.owner_id
@@ -51,6 +51,7 @@ ORDER BY o.first_name;
          6 | Shana      | Smith     |             4
 (7 rows)
 
+--Query 3: Count Cars, display average price, and apply conditions
 SELECT o.first_name, o.last_name, 
 CAST(AVG(v.price) AS INTEGER) AS average_price, 
 COUNT(v.id) AS vehicle_count 
